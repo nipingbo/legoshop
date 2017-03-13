@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+{% import "bootstrap/wtf.html" as wtf %}
+<body>
+	<div class="col-md-4">
+		{{ wtf.quick_form(form) }}
+		<br>
+		<p>New user?<a href="#">Click here to register.</a></p>
+	</div>
+</body>
+</html>

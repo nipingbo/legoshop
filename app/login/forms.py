@@ -1,18 +1,18 @@
 from app import db
-from flask.ext.wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, PasswordField
-from wtfroms.validators import InputRequired, Length, Email, EqualTo, ValidationError
+from wtforms.validators import InputRequired, Length, Email, EqualTo, ValidationError
 from werkzeug.security import check_password_hash
 from app.models import User
 
 #login form
-class loginForm(Form):
+class loginForm(FlaskForm):
 	email = StringField('Email', validators=[InputRequired()])
 	password = PasswordField('Password', validators=[InputRequired()])
 	remember_me = BooleanField('Remember Me', default=False)
 
 #Register form
-class RegForm(Form):
+class RegForm(FlaskForm):
 	email = StringField('Email', validators=[InputRequired()])
 	password = PasswordField('Password', validators=[InputRequired(), EqualTo('confirm_password', message='Two password must be the same')])
 	confirm_password = PasswordField('Confirm Password', validators=[InputRequired()])
