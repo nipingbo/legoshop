@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from . import db
+from . import db, login_manager
 class User(UserMixin, db.Model):
 	__tablename__ = 'user'
 	id = db.Column(db.Integer, primary_key=True)
@@ -44,3 +44,7 @@ class Product(db.Model):
 
     def __repr__(self):
         return '<Product %r>' % self.productId
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
