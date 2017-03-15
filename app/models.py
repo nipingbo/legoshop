@@ -1,6 +1,7 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from . import db, login_manager
+from sqlalchemy.exc import IntegrityError
 class User(UserMixin, db.Model):
 	__tablename__ = 'user'
 	id = db.Column(db.Integer, primary_key=True)
@@ -21,6 +22,7 @@ class User(UserMixin, db.Model):
 	def verify_password(self, password):
 		return check_password_hash(self.password_hash, password)
 
+
 	def __repr__(self):
                 return '<User %r>' % self.email
 
@@ -36,11 +38,36 @@ class Role(db.Model):
 class Product(db.Model):
     __tablename__ = 'product'
     id = db.Column(db.Integer, primary_key = True)
-    productId = db.Column(db.String(16), unique = True)
+    productId = db.Column(db.String(16), unique = False)
     description = db.Column(db.String(256))
     release_year = db.Column(db.String(4))
     price = db.Column(db.Numeric(10,2))
     currency = db.Column(db.String(3))
+    
+    @staticmethod
+    def generate_fake(count=100):
+        import forgery_py
+        import random
+        from decimal import Decimal
+        random.seed()
+        for i in range(count):
+                year = forgery_py.date.year()
+                product = Product(productId=forgery_py.basic.number(10000, 75999), \
+                          description = forgery_py.lorem_ipsum.words(10), \
+                          release_year = year, \
+                          price = Decimal(random.uniform(10,200)).quantize(Decimal('0.00')), \
+                          currency = 'USD')
+                print(product.productId)
+                print(product.description)
+                print(product.release_year)
+                print(product.price)
+                print(product.currency)
+                db.session.add(product)
+                try:
+                        db.session.commit()
+                except IntegrityError:
+                        db.session.rollback()
+
 
     def __repr__(self):
         return '<Product %r>' % self.productId
