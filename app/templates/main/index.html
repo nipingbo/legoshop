@@ -4,16 +4,29 @@
 	{% for product in products %}
 
 		<div class="row">
-			<div class="col-md-7">
+			<div class="col-md-3">
 				<img class="img-responsive" src="http://placehold.it/700x300" alt="">
 			</div>
-			<div class="col-md-5">
-				<h3>Product: {{ product.productId}}</h3>
+			<div class="col-md-6">
+				<h3>Product: {{ product.product_id}} {{ product.product_name}} </h3>
+				<h3>Category: {{product.product_category.name}}</h3>
 				<h4>Relase Year: {{ product.release_year }}</h4>
 				<p>{{ product.description }}</p>
 
+			</div>
+
+			<div class="col-md-3 pull-right">
+				<h4>OUR COMMUNITY</h4>
+				<h5>10 OWN THIS SET, 100 want it</h5>
+				<h4>YOUR COLLECTION</h4>
+				<h5>I own 1 of this set</h5>
+				<h5>I want this set</h5>
+				<h4>YOUR RATING</h4>
+				<h5>*****</h5>
+
 			</div>		
 		</div>
+
 
 		<hr>
 	{% endfor %}

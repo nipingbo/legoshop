@@ -38,12 +38,24 @@ class Role(db.Model):
 class Product(db.Model):
     __tablename__ = 'product'
     id = db.Column(db.Integer, primary_key = True)
-    productId = db.Column(db.String(16), unique = False)
+    product_id = db.Column(db.String(16), unique = False)
+    product_name = db.Column(db.String(64))
     description = db.Column(db.String(256))
+    product_category_id = db.Column(db.Integer, db.ForeignKey('product_category.id'))
     release_year = db.Column(db.String(4))
-    price = db.Column(db.Numeric(10,2))
-    currency = db.Column(db.String(3))
-    
+    pieces = db.Column(db.Integer)
+    packaging = db.Column(db.String(1))
+    status = db.Column(db.String(1))
+    first_sold_date = db.Column(db.Date)
+    first_sold_place = db.Column(db.String(3))
+    instruction = db.Column(db.Boolean)
+    price1 = db.Column(db.Numeric(10,2))
+    currency1 = db.Column(db.String(3))
+    price2 = db.Column(db.Numeric(10,2))
+    currency2 = db.Column(db.String(3))
+    price3 = db.Column(db.Numeric(10,2))
+    currency3 = db.Column(db.String(3))
+    settype = db.Column(db.String(1))
     @staticmethod
     def generate_fake(count=100):
         import forgery_py
@@ -52,16 +64,23 @@ class Product(db.Model):
         random.seed()
         for i in range(count):
                 year = forgery_py.date.year()
-                product = Product(productId=forgery_py.basic.number(10000, 75999), \
-                          description = forgery_py.lorem_ipsum.words(10), \
-                          release_year = year, \
-                          price = Decimal(random.uniform(10,200)).quantize(Decimal('0.00')), \
-                          currency = 'USD')
-                print(product.productId)
-                print(product.description)
-                print(product.release_year)
-                print(product.price)
-                print(product.currency)
+                price = Decimal(random.uniform(10,200)).quantize(Decimal('0.00'))
+                product = Product(product_id=forgery_py.basic.number(10000, 75999), \
+                                  product_name = forgery_py.lorem_ipsum.word(), \
+                                  description = forgery_py.lorem_ipsum.words(10), \
+                                  product_category_id = 1, \
+                                  release_year = year, \
+                                  pieces = 1000, \
+                                  packaging = 'B', \
+                                  status = 'A', \
+                                  first_sold_date = forgery_py.date.date(), \
+                                  first_sold_place = 'USA', \
+                                  instruction = True, \
+                                  price1 = price, \
+                                  currency1 = 'USD', \
+                                  price2 = price / Decimal('1.12'), \
+                                  currency2 = 'EUR', \
+                                  settype = 'N')
                 db.session.add(product)
                 try:
                         db.session.commit()
@@ -71,6 +90,15 @@ class Product(db.Model):
 
     def __repr__(self):
         return '<Product %r>' % self.productId
+
+class Product_Category(db.Model):
+	__tablename__ = 'product_category'
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(64), unique = True)
+	products = db.relationship('Product', backref='product_category', lazy='dynamic')
+	
+	def __repr__(self):
+		return '<Product Category %r>' % self.name
 
 @login_manager.user_loader
 def load_user(user_id):
