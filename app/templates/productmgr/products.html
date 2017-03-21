@@ -1,0 +1,11 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Maintain Lego Products{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block body %}
+	<div >
+		{{ wtf.quick_form(form, action="", form_type="horizontal", method="post", id="legoProductForm" )}}
+		
+		{{ wtf.form_field(form.first_sold_date, class="datepicker") }}
+		
+	</div>
+{% endblock %}

@@ -27,3 +27,9 @@ def signup():
     else:
         print(form.errors)
     return render_template('login/register.html', form=form)
+
+@login.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main.main'))

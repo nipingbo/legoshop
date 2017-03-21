@@ -1,0 +1,305 @@
+div .set {
+	/* Font & Text */
+	font-family: "Noto Sans", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 25.6px;
+	text-decoration: none;
+	text-align: start;
+	text-indent: 0px;
+	text-transform: none;
+	vertical-align: baseline;
+	white-space: normal;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-attachment: scroll;
+	background-color: rgb(255, 255, 255);
+	background-image: linear-gradient(170deg, rgb(255, 255, 255) 20%, rgb(241, 241, 241) 100%);
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	color: rgb(34, 34, 34);
+	
+	/* Positioning */
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	float: none;
+	display: block;
+	clear: both;
+	z-index: auto;
+
+	/* Box */
+	height: 331.25px;
+	width: 1116.25px;
+	border: ;
+	border-top: 0px none rgb(34, 34, 34);
+	border-right: 0px none rgb(34, 34, 34);
+	border-bottom: 5px dotted rgb(229, 229, 229);
+	border-left: 0px none rgb(34, 34, 34);
+	margin: 0px;
+	padding: 20px 0px 8.75px;
+	max-height: none;
+	min-height: 0px;
+	max-width: none;
+	min-width: 0px;
+
+	
+	/* List */
+	list-style-image: none;
+	list-style-type: disc;
+	list-style-position: outside;
+
+	/* Table */
+	border-collapse: separate;
+	border-spacing: 0px 0px;
+	caption-side: top;
+	empty-cells: show;
+	table-layout: auto;
+
+	/* Miscellaneous */
+	overflow: hidden;
+	cursor: auto;
+	visibility: visible;
+
+	/* Effects */
+	transform: none;
+	transition: all 0s ease 0s;
+	outline: rgb(255, 0, 0) dashed 1px;
+	outline-offset: 0px;
+	box-sizing: content-box;
+	resize: none;
+	text-shadow: none;
+	text-overflow: clip;
+	word-wrap: normal;
+	box-shadow: none;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+div .meta {
+	/* Color & Background */
+	background-attachment: scroll;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: none;
+
+	/* Box */
+	height: 300px;
+	width: 534.859px;
+	border: 0px none rgb(34, 34, 34);
+	border-top: 0px none rgb(34, 34, 34);
+	border-right: 0px none rgb(34, 34, 34);
+	border-bottom: 0px none rgb(34, 34, 34);
+	border-left: 0px none rgb(34, 34, 34);
+	margin: 0px 11.625px;
+	padding: 0px;
+	max-height: none;
+	min-height: 0px;
+	max-width: none;
+	min-width: 0px;
+
+	/* Positioning */
+	position: static;
+	top: auto;
+	bottom: auto;
+	right: auto;
+	left: auto;
+	float: left;
+	display: block;
+	clear: none;
+	z-index: auto;
+	
+	/* Effects */
+	transform: none;
+	transition: all 0s ease 0s;
+	outline: rgb(255, 0, 0) dashed 1px;
+
+	}
+
+.tags {
+	
+	/* Box */
+	height: 25px;
+	width: 534.859px;
+	border: 0px none rgb(34, 34, 34);
+	border-top: 0px none rgb(34, 34, 34);
+	border-right: 0px none rgb(34, 34, 34);
+	border-bottom: 0px none rgb(34, 34, 34);
+	border-left: 0px none rgb(34, 34, 34);
+	margin: 0px;
+	padding: 0px;
+	max-height: none;
+	min-height: 0px;
+	max-width: none;
+	min-width: 0px;
+
+	/* Effects */
+	transform: none;
+	transition: all 0s ease 0s;
+	outline: rgb(255, 0, 0) dashed 1px;
+	outline-offset: 0px;
+	box-sizing: content-box;
+	resize: none;
+	text-shadow: none;
+	text-overflow: clip;
+	word-wrap: normal;
+	box-shadow: none;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+.tags a{
+	white-space:nowrap;
+	padding:1px 5px;
+	text-transform:uppercase;
+	color:#fff;
+	background:#0690d6;
+}
+.tags a:hover{background:#005a88;color:#fff}
+	
+dl {
+	/* Font & Text */
+	font-size: 14px;
+	line-height: 22.4px;
+	text-transform: none;
+	vertical-align: baseline;
+	white-space: normal;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-attachment: scroll;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: none;
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	color: rgb(34, 34, 34);
+
+	/* Box */
+	height: auto;
+	/*width: 267.422px;*/
+	width: 75%
+	border: 0px none rgb(34, 34, 34);
+	border-top: 0px none rgb(34, 34, 34);
+	border-right: 0px none rgb(34, 34, 34);
+	border-bottom: 0px none rgb(34, 34, 34);
+	border-left: 0px none rgb(34, 34, 34);
+	margin: 0px;
+	padding: 0px;
+	max-height: none;
+	min-height: 0px;
+	max-width: none;
+	min-width: 0px;
+
+	outline: rgb(255, 0, 0) dashed 1px;
+}
+
+dt {
+	/* Font & Text */
+	font-size: 12px;
+	font-weight: 900;
+	line-height: 24px;
+	text-transform: uppercase;
+	vertical-align: baseline;
+	white-space: normal;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-attachment: scroll;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: none;
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	color: rgb(170, 170, 170);
+
+	
+}
+
+dd {
+	/* Font & Text */
+	font-size: 14px;
+	line-height: 22.4px;
+	text-transform: none;
+	vertical-align: baseline;
+	white-space: normal;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	color: rgb(34, 34, 34);
+	
+}
+
+dl .admin {
+	/*Font & Text */
+	font-size: 14px;
+	line-height: 23px;
+	clear: both;
+	
+}
+dl .admin dt{
+	font-size: 12px;
+	font-weight: 900;
+	line-height: 24px;
+	clear:both;
+	float:left;
+}
+dl .admin dt dd{
+	font-size: 14px;
+		
+}
+
+div.col dl dt{display:inline;float:left;width:auto;margin:0 1.04166667%;clear:both}
+div.col dl dd{display:inline;float:left;width:auto%;margin:0 1.04166667%}
+
+.meta h1 {
+	/* Font & Text */
+	font-size: 28px;
+	letter-spacing: -2px;
+	line-height: 33.6px;
+
+	/* Color & Background */
+	background-attachment: scroll;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: none;
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	color: rgb(68, 68, 68);
+
+	/* Box */
+	height: 33px;
+	width: 534.859px;
+	border: 0px none rgb(68, 68, 68);
+	border-top: 0px none rgb(68, 68, 68);
+	border-right: 0px none rgb(68, 68, 68);
+	border-bottom: 0px none rgb(68, 68, 68);
+	border-left: 0px none rgb(68, 68, 68);
+	margin: 0px;
+	padding: 0px;
+	max-height: none;
+	min-height: 0px;
+	max-width: none;
+	min-width: 0px;
+
+
+	/* Effects */
+
+	outline: rgb(255, 0, 0) dashed 1px;
+
+}
+
+
+
+
+
+
+
+
+
+

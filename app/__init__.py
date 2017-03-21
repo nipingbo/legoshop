@@ -28,4 +28,7 @@ def create_app(config_name):
 
     from .login import login as login_blueprint
     app.register_blueprint(login_blueprint)
+
+    from .productmgr import prdmgr as product_blueprint
+    app.register_blueprint(product_blueprint)
     return app
