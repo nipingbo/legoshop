@@ -13,14 +13,19 @@
 				<div class="tags">
 					<a href="#">{{product.product_category.name}}</a>
 					<a>{{ product.release_year }}</a>
-				</div>	
+				</div>
+				<div class="tags">
+					{% for tag in product.tags %}
+					<a href="#">{{ tag.tagname }}</a>
+					{% endfor %}
+				</div>
 				<div class="col">
 					<dl>
 						<dt>Pieces</dt><dd>{{ product.pieces}}</dd>
 						<dt>Price</dt><dd>{{product.price1}}</dd>
 						<dt>Packaging</dt>{% if product.packaging == 'B'%} <dd>Box</dd> {% else %} <dd>No Box</dd> {% endif %}
 						<dt>Status</dt>{% if product.status == 'A'%} <dd>For Sale</dd> {% else %} <dd>Retired</dd> {% endif %}
-						<dt>First Sold</dt><dd>{{product.packaging}}</dd>
+						<dt>First Sold</dt><dd>{{product.first_sold_date}}, {{product.first_sold_place}}</dd>
 						<dt>Instructions</dt>{% if product.instruction %} <dd>Yes</dd> {% else %} <dd>No</dd> {% endif %}
 						<dt>Set Type</dt>{% if product.settype == 'N'%} <dd>Normal</dd> {% elif product.settype == 'S' %} <dd>Special</dd> {% else %} <dd>Unknown</dd> {% endif %}
 					

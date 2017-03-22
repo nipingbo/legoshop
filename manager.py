@@ -1,6 +1,6 @@
 import os
 from app import create_app, db
-from app.models import User, Role, Product
+from app.models import User, Role, Product, Tag, Product_Tag
 from flask_script import Manager, Shell
 
 app = create_app('default')

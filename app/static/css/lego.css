@@ -164,6 +164,11 @@ div .meta {
 	background:#0690d6;
 }
 .tags a:hover{background:#005a88;color:#fff}
+
+div.set>.meta .tags:nth-child(3) a
+{background-color:#61c7fb}
+div.set>.meta .tags:nth-child(3) a:hover
+{background-color:#0690d6}
 	
 dl {
 	/* Font & Text */

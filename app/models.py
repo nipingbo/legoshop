@@ -1,7 +1,9 @@
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from . import db, login_manager
 from sqlalchemy.exc import IntegrityError
+
 class User(UserMixin, db.Model):
 	__tablename__ = 'user'
 	id = db.Column(db.Integer, primary_key=True)
@@ -35,6 +37,11 @@ class Role(db.Model):
 	def __repr__(self):
 		return '<Role %r>' % self.name
 
+Product_Tag = db.Table('product_tag', \
+                       db.Column('product_id', db.Integer, db.ForeignKey('product.id'), primary_key=True), \
+                       db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'), primary_key=True), \
+                       db.Column('timestamp', db.DateTime, default=datetime.utcnow))
+
 class Product(db.Model):
     __tablename__ = 'product'
     id = db.Column(db.Integer, primary_key = True)
@@ -56,6 +63,9 @@ class Product(db.Model):
     price3 = db.Column(db.Numeric(10,2))
     currency3 = db.Column(db.String(3))
     settype = db.Column(db.String(1))
+
+    tags = db.relationship('Tag', secondary=Product_Tag, backref='products', lazy='dynamic')
+
     @staticmethod
     def generate_fake(count=100):
         import forgery_py
@@ -81,6 +91,11 @@ class Product(db.Model):
                                   price2 = price / Decimal('1.12'), \
                                   currency2 = 'EUR', \
                                   settype = 'N')
+                tags = []
+                for tagid in [1,2,3,4]:
+                    tag = Tag.query.filter_by(id=tagid).one()
+                    tags.append(tag)
+                product.tags = random.sample(tags,3)
                 db.session.add(product)
                 try:
                         db.session.commit()
@@ -99,6 +114,13 @@ class Product_Category(db.Model):
 	
 	def __repr__(self):
 		return '<Product Category %r>' % self.name
+
+class Tag(db.Model):
+    __tablename__ = 'tag'
+    id = db.Column(db.Integer, primary_key=True)
+    tagname = db.Column(db.String(32), unique = True)
+
+    
 
 @login_manager.user_loader
 def load_user(user_id):
